@@ -7,18 +7,7 @@ type Node<T> = {
 
 type VoidFn = () => void;
 
-type LinkedList<T> = {
-  head: Node<T> | null;
-  size: number;
-  insertFirst: (value: T) => void;
-  insertLast: (value: T) => void;
-  deleteFirst: VoidFn;
-  deleteLast: VoidFn;
-  clear: VoidFn;
-  toArray: () => T[];
-};
-
-const useLinkedList = <T,>(): LinkedList<T> => {
+const useLinkedList = <T,>() => {
   const [head, setHead] = useState<Node<T> | null>(null);
   const [size, setSize] = useState<number>(0);
 
