@@ -17,7 +17,7 @@ const useLinkedList = <T,>() => {
     setSize(s => s + 1);
   };
 
-  const insertLast = (value: T): void => {
+  const insertLast = (value: T) => {
     const newNode = { value, next: null };
 
     if (!head) {
@@ -32,14 +32,14 @@ const useLinkedList = <T,>() => {
     setSize(s => s + 1);
   };
 
-  const deleteFirst = (): void => {
+  const deleteFirst = () => {
     if (!head) return;
 
     setHead(head.next);
     setSize(s => s - 1);
   };
 
-  const deleteLast = (): void => {
+  const deleteLast = () => {
     if (!head) return;
     if (!head.next) {
       setHead(null);
