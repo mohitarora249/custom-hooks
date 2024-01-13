@@ -1,20 +1,18 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 type Node<T> = {
   value: T;
   next: Node<T> | null;
 };
 
-type VoidFn = () => void;
-
-const useLinkedList = <T,>() => {
+const useLinkedList = <T>() => {
   const [head, setHead] = useState<Node<T> | null>(null);
   const [size, setSize] = useState<number>(0);
 
   const insertFirst = (value: T): void => {
     const newNode = { value, next: head };
     setHead(newNode);
-    setSize(s => s + 1);
+    setSize((s) => s + 1);
   };
 
   const insertLast = (value: T) => {
@@ -29,14 +27,14 @@ const useLinkedList = <T,>() => {
       }
       current.next = newNode;
     }
-    setSize(s => s + 1);
+    setSize((s) => s + 1);
   };
 
   const deleteFirst = () => {
     if (!head) return;
 
     setHead(head.next);
-    setSize(s => s - 1);
+    setSize((s) => s - 1);
   };
 
   const deleteLast = () => {
@@ -54,7 +52,7 @@ const useLinkedList = <T,>() => {
         prev.next = null;
       }
     }
-    setSize(s => s - 1);
+    setSize((s) => s - 1);
   };
 
   const clear = () => {
@@ -84,6 +82,6 @@ const useLinkedList = <T,>() => {
     clear,
     toArray,
   };
-}
+};
 
 export default useLinkedList;
